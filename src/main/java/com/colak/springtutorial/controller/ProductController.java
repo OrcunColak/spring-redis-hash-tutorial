@@ -2,7 +2,7 @@ package com.colak.springtutorial.controller;
 
 import com.colak.springtutorial.dao.ProductDao;
 import com.colak.springtutorial.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,10 +20,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
+@RequiredArgsConstructor
 public class ProductController {
 
-    @Autowired
-    private ProductDao dao;
+    private final ProductDao dao;
 
     @PostMapping
     public ResponseEntity<Product> save(@RequestBody Product product) {
